@@ -1,0 +1,23 @@
+document.addEventListener('DOMContentLoaded', () => {
+    fetch('/api/products')
+        .then(response => response.json())
+        .then(products => {
+            const productList = document.getElementById('product-list');
+            products.forEach(product => {
+                const productDiv = document.createElement('div');
+                productDiv.className = 'product';
+                productDiv.innerHTML = `
+                    <h3>${product.name}</h3>
+                    <p>${product.description}</p>
+                    <p>Price: ${product.price} Pi</p>
+                    <button onclick="buyProduct('${product.id}')">Buy</button>
+                `;
+                productList.appendChild(productDiv);
+            });
+        });
+});
+
+function buyProduct(productId) {
+    // Pi Network payment integration will go here
+    alert('Pi Network payment integration is not implemented yet.');
+}
