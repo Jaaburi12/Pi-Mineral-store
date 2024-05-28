@@ -1,0 +1,24 @@
+const express = require('express');
+const app = express();
+const port = 3000;
+
+let products = [
+    { id: '1', name: 'Gold Nugget', description: 'A shiny gold nugget.', price: 10 },
+    { id: '2', name: 'Silver Ore', description: 'A piece of silver ore.', price: 5 },
+    // Add more products as needed
+];
+
+app.use(express.static('public'));
+
+app.get('/api/products', (req, res) => {
+    res.json(products);
+});
+
+app.post('/api/buy', (req, res) => {
+    // Handle Pi Network payment processing here
+    res.json({ success: true, message: 'Payment processed successfully' });
+});
+
+app.listen(port, () => {
+    console.log(`Pi Network Mineral Store running at http://localhost:${port}`);
+});
