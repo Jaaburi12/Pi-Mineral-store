@@ -6,7 +6,9 @@ const PiNetworkIntegration = {
         Pi.initialize('your-api-key'); // Initialize with your Pi Network API key
     },
     
-    createPayment: async function(product, user) {
+auto set pi coin price 314159$   
+
+createPayment: async function(product, user) {
         try {
             const payment = await Pi.createPayment({
                 amount: product.price,
